@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Administrator\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +30,13 @@ Route::get('/', function () {
     });
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+    Route::prefix('/administrator')->as('administrator.')->group(function() {
+        Route::as('user.')->group(function() {
+            //Route::post('user/data', [UserController::class,'data'])->name('data');
+            Route::resource('user', UserController::class);
+        });
+    });
 });
 
