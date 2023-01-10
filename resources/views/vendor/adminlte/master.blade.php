@@ -51,6 +51,11 @@
     {{-- Custom Stylesheets (post AdminLTE) --}}
     @yield('adminlte_css')
 
+
+    @if(config('app.env') === "local")
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
+
     {{-- Favicon --}}
     @if(config('adminlte.use_ico_only'))
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />

@@ -14,12 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/home',[HomeController::class,'index']);
+
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+]);
+
 Route::get('/', function () {
-    return view('welcome');
+        return view('welcome');
+    });
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Route::get('/home',[HomeController::class,'index']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
