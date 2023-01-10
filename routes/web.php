@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function() {
 
     Route::prefix('/administrator')->as('administrator.')->group(function() {
         Route::as('user.')->group(function() {
-            //Route::post('user/data', [UserController::class,'data'])->name('data');
+            Route::post('user/data', [UserController::class,'data'])->name('data');
             Route::resource('user', UserController::class);
         });
     });

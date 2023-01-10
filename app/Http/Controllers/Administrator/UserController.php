@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Administrator;
 
-use App\DataTables\UsersDataTable;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -15,9 +15,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UsersDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('layouts.administrator.user.index');
+        return view('layouts.administrator.user.index');
     }
 
     public function data()
@@ -25,22 +25,22 @@ class UserController extends Controller
         $datas = User::orderBy("name","asc");
 
         return DataTables::of($datas)
-        // ->editColumn('action', function ($user) {
-        //     $show =
-        //         '<a href="' .
-        //         route('user.show', $user->id) .
-        //         '" class="btn btn-info btn-flat btn-xs" title="' .
-        //         Lang::get('Show') .
-        //         '"><i class="fa fa-eye fa-sm"></i></a>';
-        //     $edit =
-        //         '<a href="' .
-        //         route('user.edit', $user->id) .
-        //         '" class="btn btn-danger btn-flat btn-xs" title="' .
-        //         Lang::get('Edit') .
-        //         '"><i class="fa fa-pencil-alt fa-sm"></i></a>';
-        //     return $show . $edit;
-        // })
-        //->rawColumns(['name', 'action', 'user_type'])
+        ->editColumn('action', function ($user) {
+            $show =
+                '<a href="' .
+                route('user.show', $user->id) .
+                '" class="btn btn-info btn-flat btn-xs" title="' .
+                Lang::get('Show') .
+                '"><i class="fa fa-eye fa-sm"></i></a>';
+            $edit =
+                '<a href="' .
+                route('user.edit', $user->id) .
+                '" class="btn btn-danger btn-flat btn-xs" title="' .
+                Lang::get('Edit') .
+                '"><i class="fa fa-pencil-alt fa-sm"></i></a>';
+            return $show . $edit;
+        })
+        ->rawColumns(['name', 'action', 'user_type'])
         ->make(true);
     }
 
@@ -73,7 +73,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        dd("test");
     }
 
     /**
