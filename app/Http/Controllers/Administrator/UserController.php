@@ -34,8 +34,8 @@ class UserController extends Controller
             $edit =
                 '<a href="' .
                 route('administrator.user.edit', $user->id) .
-                '" class="btn btn-danger btn-flat btn-xs" title="Edit"><i class="fa fa-pencil-alt fa-sm"></i></a>';
-            return $show . $edit;
+                '" class="btn btn-warning btn-flat btn-xs" title="Edit"><i class="fa fa-pencil-alt fa-sm"></i></a>';
+            return $show.$edit;
         })
         ->rawColumns(['action'])
         ->make(true);
