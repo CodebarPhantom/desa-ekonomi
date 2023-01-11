@@ -3,17 +3,42 @@
 @section('title', 'User')
 
 @section('content_header')
-    <h1>User</h1>
+<div class="row mb-2">
+    <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Master Users</h1>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Master Users</a></li>
+        </ol>
+    </div>
+</div>
 @stop
 
 @section('content')
-    <div class="card-body">
-        <div class="row">
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered dt-responsive nowrap table-sm" width="100%" id="datatable_1"></table>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-info card-outline">
+            <div class="card-header">
+                <div class="d-flex justify-content-between">
+                    <h3 class="card-title mt-1">
+                        <i class="fa fa-users"></i>
+                        &nbsp; {{ __('Users') }}
+                    </h3>
+                    <a href="{{ route('administrator.user.create') }}" class="btn btn-primary btn-flat btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;{{__('Buat').' '.__('User') }}</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered dt-responsive nowrap table-sm" width="100%" id="datatable_1"></table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
 @stop
 
 @section('css')

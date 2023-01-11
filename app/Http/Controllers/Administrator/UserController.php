@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
+use DB,Alert;
 
 class UserController extends Controller
 {
@@ -28,19 +29,15 @@ class UserController extends Controller
         ->editColumn('action', function ($user) {
             $show =
                 '<a href="' .
-                route('user.show', $user->id) .
-                '" class="btn btn-info btn-flat btn-xs" title="' .
-                Lang::get('Show') .
-                '"><i class="fa fa-eye fa-sm"></i></a>';
+                route('administrator.user.show', $user->id) .
+                '" class="btn btn-info btn-flat btn-xs" title="Show"><i class="fa fa-eye fa-sm"></i></a>';
             $edit =
                 '<a href="' .
-                route('user.edit', $user->id) .
-                '" class="btn btn-danger btn-flat btn-xs" title="' .
-                Lang::get('Edit') .
-                '"><i class="fa fa-pencil-alt fa-sm"></i></a>';
+                route('administrator.user.edit', $user->id) .
+                '" class="btn btn-danger btn-flat btn-xs" title="Edit"><i class="fa fa-pencil-alt fa-sm"></i></a>';
             return $show . $edit;
         })
-        ->rawColumns(['name', 'action', 'user_type'])
+        ->rawColumns(['action'])
         ->make(true);
     }
 
@@ -51,7 +48,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $data = new User;
+        $title = "Buat User";
+        $action = "create";
+        return view('layouts.administrator.user.create', compact('title','data','action'));
     }
 
     /**
@@ -62,7 +62,31 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'password' => 'required',
+            'email' => 'required|unique:users,email'
+        ]);
+
+        DB::beginTransaction();
+        try {
+
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->type = "administrator";
+            $user->save();
+            DB::commit();
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+        Alert::alert('Success', 'User Baru Telah di Daftarkan', 'success');
+        return redirect()->route('administrator.user.index');
+
     }
 
     /**
@@ -73,7 +97,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        dd("test");
+        $data =  User::find($id);
+        $title = "Lihat User";
+        $action = "show";
+        return view('layouts.administrator.user.show', compact('title','data','action'));
+
     }
 
     /**
@@ -84,7 +112,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data =  User::find($id);
+        $title = "Buat User";
+        $action = "edit";
+        return view('layouts.administrator.user.edit', compact('title','data','action'));
     }
 
     /**
@@ -96,7 +127,31 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'password' => 'required',
+            'email' => "required|email|unique:users,email,$id"
+        ]);
+
+        $user = User::findOrFail($id);
+
+        DB::beginTransaction();
+        try {
+
+            $user->name = $request->name;
+            $user->password =  bcrypt($request->password);;
+            $user->email = $request->email;
+            $user->save();
+            DB::commit();
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+
+        Alert::alert('Success', 'User ' . $user->name . ' Telah di Ubah', 'info');
+        return redirect()->route('administrator.user.index');
     }
 
     /**
