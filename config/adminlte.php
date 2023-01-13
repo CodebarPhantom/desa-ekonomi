@@ -314,8 +314,8 @@ return [
         ],
         [
             'text' => 'Pariwisata',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'url'  => 'administrator/pariwisata',
+            'icon' => 'fas fa-fw fa-store-alt',
         ],
         [
             'text'    => 'multilevel',

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Administrator\UserController;
+use App\Http\Controllers\Administrator\PariwisataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,17 @@ Route::middleware(['auth'])->group(function() {
             Route::get('{id}/edit', [UserController::class,'edit'])->name('edit');
             Route::put('{id}', [UserController::class,'update'])->name('update');
             Route::delete('{id}', [UserController::class,'destroy'])->name('destroy');
+        });
+
+        Route::prefix('/pariwisata')->as('pariwisata.')->group(function() {
+            Route::get('', [PariwisataController::class,'index'])->name('index');
+            Route::get('create', [PariwisataController::class,'create'])->name('create');
+            Route::post('', [PariwisataController::class,'store'])->name('store');
+            Route::post('data', [PariwisataController::class,'data'])->name('data');
+            Route::get('{id}', [PariwisataController::class,'show'])->name('show');
+            Route::get('{id}/edit', [PariwisataController::class,'edit'])->name('edit');
+            Route::put('{id}', [PariwisataController::class,'update'])->name('update');
+            Route::delete('{id}', [PariwisataController::class,'destroy'])->name('destroy');
         });
     });
 });

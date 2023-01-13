@@ -6,8 +6,7 @@ namespace App\Http\Controllers\Administrator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Yajra\DataTables\Facades\DataTables;
-use DB,Alert;
+use DB,Alert,DataTables;
 
 class UserController extends Controller
 {

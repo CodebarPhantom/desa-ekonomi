@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::factory()->create([
             'name' => 'Admin Karang Taruna',
-            'email' => 'admin@karawang-tegalwaru.com',
+            'email' => 'admin@admin.com',
             'type' => "administrator",
         ]);
     }
