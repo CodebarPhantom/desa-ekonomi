@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("name");
             $table->text("description");
             $table->string("address");
-            $table->string("url_logo");
+            $table->string("url_logo")->nullable();
             $table->string("url_image")->nullable();
             $table->string("url_video")->nullable();
             $table->timestamps();

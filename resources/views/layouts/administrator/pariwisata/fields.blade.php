@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label>Logo Pariwisata</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input"  name="url_logo" id="customFile">
+                            <input type="file" class="custom-file-input"  name="url_logo" id="customFile-1">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                     <div class="form-group">
                         <label>Gambar Pariwisata</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="url_image" id="customFile">
+                            <input type="file" class="custom-file-input" name="url_image" id="customFile-2">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label>URL Video</label>
-                        <input type="text" name="url_video" @if ($action ===  "show") disabled @endif class="form-control  @error('url_video') is-invalid @enderror" placeholder="URL Video Youtube dsb ..." value="{{ old('url_video', $data->url_video) }}"  required>
+                        <input type="text" name="url_video" @if ($action ===  "show") disabled @endif class="form-control  @error('url_video') is-invalid @enderror" placeholder="URL Video Youtube dsb ..." value="{{ old('url_video', $data->url_video) }}" >
                     </div>
                 </div>
                 @else

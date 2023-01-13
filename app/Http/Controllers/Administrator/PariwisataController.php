@@ -62,7 +62,52 @@ class PariwisataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'description' => 'required'
+        ]);
+
+        DB::beginTransaction();
+        try {
+
+            $fileUrlLogo = null;
+            $fileUrlCoverImage = null;
+
+            if ($request->url_logo) {
+                $filePathLogo = $request->url_logo->store('public/image/logo');
+                $fileUrlLogo = '/storage' . str_replace('public', '', $filePathLogo);
+            }
+
+            if ($request->url_image) {
+                $filePathCoverImage = $request->url_image->store('public/image/cover-image');
+                $fileUrlCoverImage = '/storage' . str_replace('public', '', $filePathCoverImage);
+            }
+
+
+
+
+            $pariwisata = new Pariwisata();
+            $pariwisata->name = $request->name;
+            $pariwisata->address = $request->address;
+            $pariwisata->description = $request->description;
+            $pariwisata->url_logo = isset($request->url_logo) ? $fileUrlLogo : null;
+            $pariwisata->url_image = isset($request->url_image) ? $fileUrlCoverImage : null;
+            $pariwisata->url_video = isset($request->url_video) ? $request->url_video : null;
+            $pariwisata->save();
+
+            DB::commit();
+
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+        Alert::alert('Success', 'Tempat Pariwisata Telah di Daftarkan', 'success');
+        return redirect()->route('administrator.pariwisata.index');
     }
 
     /**
