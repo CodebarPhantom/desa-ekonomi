@@ -130,13 +130,13 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label for="logoFile">Logo Pariwisata</label><br/>
-                        <a href="{{ $data->url_logo }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo  }}"></a>
+                        <a href="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}"></a>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="logoFile">Gambar Pariwisata</label><br/>
-                        <a href="{{ $data->url_image }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="400" height="400" src="{{ $data->url_image  }}"></a>
+                        <a href="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="400" height="400" src="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}"></a>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -147,9 +147,6 @@
                 </div>
                 @endif
             </div>
-
-
-
         </div>
     </div>
 </div>
