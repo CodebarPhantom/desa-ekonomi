@@ -53,7 +53,7 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea name="description" class="form-control  @error('address') is-invalid @enderror" placeholder="Alamat ..." rows="3" @if ($action ===  "show") disabled @endif required>{{ old('deskripsi', $data->deskripsi) }}</textarea>
+                        <textarea name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Description ..." rows="3" @if ($action ===  "show") disabled @endif required>{{ old('description', $data->description) }}</textarea>
                     </div>
                 </div>
 
@@ -83,7 +83,24 @@
                     </div>
                 </div>
                 @else
-
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="logoFile">Logo Pariwisata</label><br/>
+                        <a href="{{ $data->url_logo }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo  }}"></a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="logoFile">Gambar Pariwisata</label><br/>
+                        <a href="{{ $data->url_image }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="560" height="315" src="{{ $data->url_image  }}"></a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="logoFile">URL Video</label><br/>
+                        <iframe width="560" height="315" src="{{ $data->url_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
                 @endif
             </div>
 

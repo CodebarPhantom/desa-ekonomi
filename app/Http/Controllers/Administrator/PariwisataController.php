@@ -35,7 +35,17 @@ class PariwisataController extends Controller
                 '<a href="' .
                 route('administrator.pariwisata.edit', $pariwisata->id) .
                 '" class="btn btn-warning btn-flat btn-xs" title="Edit"><i class="fa fa-pencil-alt fa-sm"></i></a>';
-            return $show.$edit;
+
+            $delete =
+                '<a href="#" data-href="'.
+                route('administrator.user.destroy', $pariwisata->id) .
+                '" class="btn btn-danger btn-flat btn-xs"
+                title="Delete" data-toggle="modal"
+                data-text="Apakah anda yakin untuk menghapus pariwisata '.$pariwisata->name.'"
+                data-target="#modal-confirmation-delete" data-value="'.$pariwisata->id.'">
+                <i class="fa fa-trash"></i>
+                </a>';
+            return $show.$edit.$delete;
         })
         ->rawColumns(['action'])
         ->make(true);
@@ -62,8 +72,6 @@ class PariwisataController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $this->validate($request, [
             'name' => 'required',
             'address' => 'required',
@@ -85,8 +93,6 @@ class PariwisataController extends Controller
                 $filePathCoverImage = $request->url_image->store('public/image/cover-image');
                 $fileUrlCoverImage = '/storage' . str_replace('public', '', $filePathCoverImage);
             }
-
-
 
 
             $pariwisata = new Pariwisata();
@@ -116,9 +122,12 @@ class PariwisataController extends Controller
      * @param  \App\Models\Pariwisata  $pariwisata
      * @return \Illuminate\Http\Response
      */
-    public function show(Pariwisata $pariwisata)
+    public function show($id)
     {
-        //
+        $data =  Pariwisata::find($id);
+        $title = "Lihat Pariwisata";
+        $action = "show";
+        return view('layouts.administrator.pariwisata.show', compact('title','data','action'));
     }
 
     /**
