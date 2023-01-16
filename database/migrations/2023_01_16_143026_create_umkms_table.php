@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pariwisatas', function (Blueprint $table) {
+        Schema::create('umkms', function (Blueprint $table) {
             $table->id();
             $table->string("name");
             $table->text("description");
             $table->string("address");
-            $table->string("category")->default("Pariwisata Alam");
             $table->string("url_logo")->nullable();
-            $table->string("url_image")->nullable();
-            $table->string("url_video")->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pariwisatas');
+        Schema::dropIfExists('umkms');
     }
 };

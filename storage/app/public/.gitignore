@@ -1,2 +1,4 @@
 *
+# Allow
 !.gitignore
+!/image/empty.png

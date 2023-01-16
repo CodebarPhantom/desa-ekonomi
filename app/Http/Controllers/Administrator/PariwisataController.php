@@ -99,6 +99,7 @@ class PariwisataController extends Controller
             $pariwisata = new Pariwisata();
             $pariwisata->name = $request->name;
             $pariwisata->address = $request->address;
+            $pariwisata->category = $request->category;
             $pariwisata->description = $request->description;
             $pariwisata->url_logo = isset($request->url_logo) ? $fileUrlLogo : null;
             $pariwisata->url_image = isset($request->url_image) ? $fileUrlCoverImage : null;
@@ -184,6 +185,7 @@ class PariwisataController extends Controller
             $pariwisata->name = $request->name;
             $pariwisata->address = $request->address;
             $pariwisata->description = $request->description;
+            $pariwisata->category = $request->category;
             $pariwisata->url_logo = isset($request->url_logo) ? $fileUrlLogo :  $pariwisata->url_logo;
             $pariwisata->url_image = isset($request->url_image) ? $fileUrlCoverImage : $pariwisata->url_image;
             $pariwisata->url_video = isset($request->url_video) ? $request->url_video : $pariwisata->url_video ;
