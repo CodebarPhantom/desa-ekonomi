@@ -34,7 +34,17 @@ class UserController extends Controller
                 '<a href="' .
                 route('administrator.user.edit', $user->id) .
                 '" class="btn btn-warning btn-flat btn-xs" title="Edit"><i class="fa fa-pencil-alt fa-sm"></i></a>';
-            return $show.$edit;
+
+            $delete =
+                '<a href="#" data-href="'.
+                route('administrator.user.destroy', $user->id) .
+                '" class="btn btn-danger btn-flat btn-xs"
+                title="Delete" data-toggle="modal"
+                data-text="Apakah anda yakin untuk menghapus User '.$user->name.'"
+                data-target="#modal-confirmation-delete" data-value="'.$user->id.'">
+                <i class="fa fa-trash"></i>
+                </a>';
+            return $show.$edit.$delete;
         })
         ->rawColumns(['action'])
         ->make(true);
@@ -161,6 +171,21 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        DB::beginTransaction();
+        try {
+
+            User::destroy($id);
+            DB::commit();
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+
+        Alert::alert('Deleted', 'User ' . $user->name . ' Telah di dihapus', 'error');
+        return redirect()->route('administrator.user.index');
     }
 }

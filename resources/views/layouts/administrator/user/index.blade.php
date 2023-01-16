@@ -16,6 +16,8 @@
 @stop
 
 @section('content')
+@include('include.modal-confirmation-delete')
+
 <div class="row">
     <div class="col-md-12">
         <div class="card card-info card-outline">
