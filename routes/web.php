@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Administrator\UserController;
 use App\Http\Controllers\Administrator\PariwisataController;
+use App\Http\Controllers\Administrator\UmkmController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,17 @@ Route::middleware(['auth'])->group(function() {
             Route::get('{id}/edit', [PariwisataController::class,'edit'])->name('edit');
             Route::put('{id}', [PariwisataController::class,'update'])->name('update');
             Route::delete('{id}', [PariwisataController::class,'destroy'])->name('destroy');
+        });
+
+        Route::prefix('/umkm')->as('umkm.')->group(function() {
+            Route::get('', [UmkmController::class,'index'])->name('index');
+            Route::get('create', [UmkmController::class,'create'])->name('create');
+            Route::post('', [UmkmController::class,'store'])->name('store');
+            Route::post('data', [UmkmController::class,'data'])->name('data');
+            Route::get('{id}', [UmkmController::class,'show'])->name('show');
+            Route::get('{id}/edit', [UmkmController::class,'edit'])->name('edit');
+            Route::put('{id}', [UmkmController::class,'update'])->name('update');
+            Route::delete('{id}', [UmkmController::class,'destroy'])->name('destroy');
         });
     });
 });

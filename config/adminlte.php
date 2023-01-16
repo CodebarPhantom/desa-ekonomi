@@ -306,27 +306,46 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
-        ['header' => 'Data Master'],
-        [
-            'text' => 'User',
-            'url'  => 'administrator/user',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+
+        ['header' => 'Pemberdayaan Masyarakat'],
         [
             'text' => 'Pariwisata',
             'url'  => 'administrator/pariwisata',
             'icon' => 'fas fa-fw fa-store-alt',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'UMKM',
+            'icon'    => 'fas fa-fw fa-building',
             'submenu' => [
                 [
-                    'text' => 'level_one',
+                    'text' => 'Master UMKM',
+                    'icon'    => 'fas fa-fw fa-building',
+                    'url'  => 'administrator/umkm',
+                ],
+                [
+                    'text' => 'Produk UMKM',
+                    'icon'    => 'fas fa-fw fa-shopping-bag',
+                    'url'  => '#',
+                ]
+            ],
+        ],
+        ['header' => 'Pengaturan'],
+        [
+            'text' => 'User',
+            'url'  => 'administrator/user',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        /*[
+            'text'    => 'UMKM',
+            'icon'    => 'fas fa-fw fa-building',
+            'submenu' => [
+                [
+                    'text' => 'Master UMKM',
+                    'icon'    => 'fas fa-fw fa-building',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'level_one',
+                    'text'    => 'Produk UMKM',
                     'url'     => '#',
                     'submenu' => [
                         [
@@ -354,23 +373,7 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        ]*/
     ],
 
     /*

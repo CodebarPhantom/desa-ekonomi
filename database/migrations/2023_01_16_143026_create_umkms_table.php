@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("address");
             $table->string("url_logo")->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
