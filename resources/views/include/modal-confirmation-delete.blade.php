@@ -15,8 +15,8 @@
             <input type="hidden" id="input-value" name="confirmation_id" value="">
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('Tidak') }}</button>
-              <button type="submit" class="btn btn-success">{{ __('Ya') }}</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal">{{ __('Tidak') }}</button>
+              <button type="submit" class="btn btn-danger">{{ __('Ya') }}</button>
           </div>
       </form>
       </div>

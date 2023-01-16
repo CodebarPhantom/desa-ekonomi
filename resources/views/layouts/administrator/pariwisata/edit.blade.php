@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'User')
+@section('title', 'Pariwisata')
 
 @section('content_header')
 
@@ -11,7 +11,7 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Master Users</a></li>
+            <li class="breadcrumb-item"><a href="#">Master Pariwisata</a></li>
             <li class="breadcrumb-item"><a href="#">{{ $title }}</a></li>
         </ol>
     </div>
@@ -20,10 +20,10 @@
 
 @section('content')
 <div class="row">
-    <form role="form" action="{{ route('administrator.user.update',$data->id) }}" method="POST" class="col-md-12" enctype="multipart/form-data">
+    <form role="form" action="{{ route('administrator.pariwisata.update',$data->id) }}" method="POST" class="col-md-12" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        @include("layouts.administrator.user.fields")
+        @include("layouts.administrator.pariwisata.fields")
     </form>
 </div>
 @stop
@@ -34,4 +34,13 @@
 
 @push('js')
 
+<script type="text/javascript">
+
+    $('.custom-file input').change(function (e) {
+        if (e.target.files.length) {
+            $(this).next('.custom-file-label').html(e.target.files[0].name);
+        }
+    });
+
+</script>
 @endpush

@@ -122,7 +122,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $data =  User::find($id);
-        $title = "Buat User";
+        $title = "Ubah User";
         $action = "edit";
         return view('layouts.administrator.user.edit', compact('title','data','action'));
     }
