@@ -57,7 +57,10 @@ class UmkmController extends Controller
      */
     public function create()
     {
-        //
+        $data = new Umkm();
+        $title = "Buat UMKM";
+        $action = "create";
+        return view('layouts.administrator.umkm.create', compact('title','data','action'));
     }
 
     /**
@@ -68,7 +71,39 @@ class UmkmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'description' => 'required'
+        ]);
+
+        DB::beginTransaction();
+        try {
+
+            $fileUrlLogo = null;
+
+            if ($request->url_logo) {
+                $filePathLogo = $request->url_logo->store('public/image/logo');
+                $fileUrlLogo = '/storage' . str_replace('public', '', $filePathLogo);
+            }
+
+            $umkm = new Umkm();
+            $umkm->name = $request->name;
+            $umkm->address = $request->address;
+            $umkm->description = $request->description;
+            $umkm->url_logo = isset($request->url_logo) ? $fileUrlLogo : null;
+            $umkm->save();
+
+            DB::commit();
+
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+        Alert::alert('Success', 'UMKM Telah di Daftarkan', 'success');
+        return redirect()->route('administrator.umkm.index');
     }
 
     /**
@@ -77,9 +112,12 @@ class UmkmController extends Controller
      * @param  \App\Models\Umkm  $umkm
      * @return \Illuminate\Http\Response
      */
-    public function show(Umkm $umkm)
+    public function show($id)
     {
-        //
+        $data =  Umkm::find($id);
+        $title = "Lihat UMKM";
+        $action = "show";
+        return view('layouts.administrator.umkm.show', compact('title','data','action'));
     }
 
     /**
@@ -88,9 +126,12 @@ class UmkmController extends Controller
      * @param  \App\Models\Umkm  $umkm
      * @return \Illuminate\Http\Response
      */
-    public function edit(Umkm $umkm)
+    public function edit($id)
     {
-        //
+        $data =  Umkm::find($id);
+        $title = "Ubah UMKM";
+        $action = "edit";
+        return view('layouts.administrator.umkm.edit', compact('title','data','action'));
     }
 
     /**
@@ -100,9 +141,46 @@ class UmkmController extends Controller
      * @param  \App\Models\Umkm  $umkm
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Umkm $umkm)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'description' => 'required'
+        ]);
+
+        $umkm = Umkm::findOrFail($id);
+
+
+        DB::beginTransaction();
+        try {
+
+
+            if ($request->url_logo) {
+                Storage::delete(str_replace(url('storage'), 'public', $umkm->url_logo));
+                $filePathLogo = $request->url_logo->store('public/image/logo');
+                $fileUrlLogo = '/storage' . str_replace('public', '', $filePathLogo);
+                //$tourismInfo->url_cover_image = $filePathUrlCoverImage;
+            }
+
+            $umkm->name = $request->name;
+            $umkm->address = $request->address;
+            $umkm->description = $request->description;
+            $umkm->url_logo = isset($request->url_logo) ? $fileUrlLogo :  $umkm->url_logo;
+            $umkm->save();
+
+            DB::commit();
+
+
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+
+        Alert::alert('Success', 'UMKM ' . $umkm->name . ' Telah di Ubah', 'info');
+        return redirect()->route('administrator.umkm.index');
     }
 
     /**
@@ -111,8 +189,23 @@ class UmkmController extends Controller
      * @param  \App\Models\Umkm  $umkm
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Umkm $umkm)
+    public function destroy($id)
     {
-        //
+        $umkm = Umkm::findOrFail($id);
+
+        DB::beginTransaction();
+        try {
+
+            Umkm::destroy($id);
+            DB::commit();
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+
+        Alert::alert('Deleted', 'UMKM ' . $umkm->name . ' Telah di dihapus', 'error');
+        return redirect()->route('administrator.umkm.index');
     }
 }

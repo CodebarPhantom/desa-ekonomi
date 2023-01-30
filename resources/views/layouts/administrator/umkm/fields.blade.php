@@ -9,7 +9,7 @@
                     </h3>
                 </div>
                 <div class="mr-1">
-                    <a href="{{ route('administrator.pariwisata.index') }}" class="btn btn-secondary btn-flat btn-sm">
+                    <a href="{{ route('administrator.umkm.index') }}" class="btn btn-secondary btn-flat btn-sm">
                         <i class="fa fa-arrow-left"></i>
                         &nbsp;&nbsp; Kembali
                     </a>
@@ -52,22 +52,6 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Kategori</label>
-                        <select class="custom-select" @if ($action ===  "show") disabled @endif name="category">
-                            <option value="Pariwisata Alam"
-                            @if ($data->category === "Pariwisata Alam")
-                                selected
-                            @endif>Pariwisata Alam</option>
-                            <option value="Pariwisata Religi"
-                            @if ($data->category === "Pariwisata Religi")
-                                selected
-                            @endif
-                            >Pariwista Religi</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
                         <label>Deskripsi</label>
                         <textarea name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Description ..." rows="2" @if ($action ===  "show") disabled @endif required>{{ old('description', $data->description) }}</textarea>
                     </div>
@@ -76,32 +60,17 @@
                 @if ($action === "create")
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Logo Pariwisata</label>
+                            <label>Logo UMKM</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input"  name="url_logo" id="customFile-1">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
                         </div>
                     </div>
+                @elseif ($action  === "edit")
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Gambar Pariwisata</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="url_image" id="customFile-2">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label>URL Video</label>
-                            <input type="text" name="url_video" @if ($action ===  "show") disabled @endif class="form-control  @error('url_video') is-invalid @enderror" placeholder="URL Video Youtube dsb ..." value="{{ old('url_video', $data->url_video) }}" >
-                        </div>
-                    </div>
-                @elseif ($action  === "edit")
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label>Logo Pariwisata</label>
+                            <label>Logo UMKM</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input"  name="url_logo" id="customFile-1">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
@@ -109,40 +78,11 @@
                             <a href="{{ $data->url_logo }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo  }}"></a>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>Gambar Pariwisata</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="url_image" id="customFile-2">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                            <a href="{{ $data->url_image }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="400" height="400" src="{{ $data->url_image  }}"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>URL Video</label>
-                            <input type="text" name="url_video" @if ($action ===  "show") disabled @endif class="form-control  @error('url_video') is-invalid @enderror" placeholder="URL Video Youtube dsb ..." value="{{ old('url_video', $data->url_video) }}" >
-                        </div>
-                        <iframe width="400" height="400" src="{{ $data->url_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
                 @else
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="logoFile">Logo Pariwisata</label><br/>
+                        <label for="logoFile">Logo UMKM</label><br/>
                         <a href="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="logoFile">Gambar Pariwisata</label><br/>
-                        <a href="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="400" height="400" src="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="logoFile">URL Video</label><br/>
-                        <iframe width="400" height="400" src="{{ $data->url_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
                 @endif

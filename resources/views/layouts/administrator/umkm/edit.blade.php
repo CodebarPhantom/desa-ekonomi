@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Pariwisata')
+@section('title', 'UMKM')
 
 @section('content_header')
 
@@ -11,7 +11,7 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Master Pariwisata</a></li>
+            <li class="breadcrumb-item"><a href="#">Master UMKM</a></li>
             <li class="breadcrumb-item"><a href="#">{{ $title }}</a></li>
         </ol>
     </div>
@@ -20,10 +20,10 @@
 
 @section('content')
 <div class="row">
-    <form role="form" action="{{ route('administrator.pariwisata.update',$data->id) }}" method="POST" class="col-md-12" enctype="multipart/form-data">
+    <form role="form" action="{{ route('administrator.umkm.update',$data->id) }}" method="POST" class="col-md-12" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        @include("layouts.administrator.pariwisata.fields")
+        @include("layouts.administrator.umkm.fields")
     </form>
 </div>
 @stop
