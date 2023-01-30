@@ -14,9 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @if (env('APP_ENV') === 'local')
-        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    @endif
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
