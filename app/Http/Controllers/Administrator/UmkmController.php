@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use DB,Alert,DataTables;
+use Illuminate\Support\Facades\Log;
 
 class UmkmController extends Controller
 {
@@ -207,5 +208,29 @@ class UmkmController extends Controller
 
         Alert::alert('Deleted', 'UMKM ' . $umkm->name . ' Telah di dihapus', 'error');
         return redirect()->route('administrator.umkm.index');
+    }
+
+    public function umkmJson(Request $request)
+    {
+        $search = $request->search;
+        if ($search == '') {
+            $umkms = Umkm::paginate(10);
+        } else {
+            $umkms = Umkm::where('name', 'like', '%' . $search . '%')
+                ->paginate(25);
+        }
+
+        $response = [];
+        foreach ($umkms as $umkm) {
+            $response[] = [
+                'id' => $umkm->id,
+                'text' =>$umkm->name
+            ];
+        }
+
+        //Log::debug(json_encode($response));
+
+        echo json_encode($response);
+        exit();
     }
 }

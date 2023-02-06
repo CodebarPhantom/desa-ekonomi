@@ -5,11 +5,11 @@
 @section('content_header')
 <div class="row mb-2">
     <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Master UMKM</h1>
+        <h1 class="m-0 text-dark">Produk UMKM</h1>
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Master UMKM</a></li>
+            <li class="breadcrumb-item"><a href="#">Produk UMKM</a></li>
         </ol>
     </div>
 </div>
@@ -24,10 +24,10 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <h3 class="card-title mt-1">
-                        <i class="fa fa-building"></i>
-                        &nbsp; UMKM
+                        <i class="fa fa-shopping-bag"></i>
+                        &nbsp; Produk UMKM
                     </h3>
-                    <a href="{{ route('administrator.umkm.create') }}" class="btn btn-primary btn-flat btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;{{__('Buat').' '.__('UMKM') }}</a>
+                    <a href="{{ route('administrator.umkm-product.create') }}" class="btn btn-primary btn-flat btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;{{__('Buat').' '.__('Produk').' '.__('UMKM') }}</a>
                 </div>
             </div>
             <div class="card-body">
@@ -73,12 +73,12 @@
                 },
                 ajax: {
                     method: 'POST',
-                    url: "{{ route('administrator.umkm.data') }}",
+                    url: "{{ route('administrator.umkm-product.data') }}",
                     headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }
                 },
                 columns: [
                     { title: "{{ __('Nama') }}", data: 'name', name: 'name', defaultContent: '-', class: 'text-center' },
-                    { title: "{{ __('Alamat') }}", data: 'address', name: 'address', defaultContent: '-', class: 'text-center' },
+                    { title: "{{ __('UMKM') }}", data: 'umkm_name', name: 'umkm_name', defaultContent: '-', class: 'text-center',searchable:false, orderable: false },
                     { title: "{{ __('Action') }}", data: 'action', name: 'action', defaultContent: ' - ', class: 'text-center',searchable:false, orderable: false },
                 ]
             });

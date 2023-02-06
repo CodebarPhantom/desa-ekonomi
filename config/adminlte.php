@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Desa Ekonomi',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -312,6 +312,7 @@ return [
             'text' => 'Pariwisata',
             'url'  => 'administrator/pariwisata',
             'icon' => 'fas fa-fw fa-store-alt',
+            'active' => ['administrator/pariwisata*'],
         ],
         [
             'text'    => 'UMKM',
@@ -321,10 +322,34 @@ return [
                     'text' => 'Master UMKM',
                     'icon'    => 'fas fa-fw fa-building',
                     'url'  => 'administrator/umkm',
+                    'active' => ['administrator/umkm','administrator/umkm/*']
                 ],
                 [
                     'text' => 'Produk UMKM',
                     'icon'    => 'fas fa-fw fa-shopping-bag',
+                    'url'  => 'administrator/umkm-product',
+                    'active' => ['administrator/umkm-product*']
+
+                ]
+            ],
+        ],
+        [
+            'text'    => 'Pemberdayaan',
+            'icon'    => 'fas fa-fw fa-user-friends',
+            'submenu' => [
+                [
+                    'text' => 'Produk Masyarakat',
+                    'icon'    => 'fas fa-fw fa-shopping-bag',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Event Masyarakat',
+                    'icon'    => 'far fa-fw fa-calendar-alt',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Kreativitas Masyarakat',
+                    'icon'    => 'fas fa-fw fa-palette',
                     'url'  => '#',
                 ]
             ],
@@ -432,7 +457,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

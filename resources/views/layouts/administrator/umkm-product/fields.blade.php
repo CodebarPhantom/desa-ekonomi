@@ -46,8 +46,16 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Alamat</label>
-                        <input type="text" name="address" @if ($action ===  "show") disabled @endif class="form-control  @error('address') is-invalid @enderror" placeholder="Alamat ..." value="{{ old('address', $data->address) }}"  required>
+                        <label>{{ __('UMKM')}}</label>
+                        @if ($action ===  "show")
+                            <input type="text" name="umkm_name" @if ($action ===  "show") disabled @endif class="form-control @error('umkm_name') is-invalid @enderror" placeholder="UMKM ..." value="{{ old('umkm_id', $data->umkm_name) }}" required>
+                        @else
+                            <select id="select2-umkm" class="form-control select2 @error('umkm_id') is-invalid @enderror" style="width: 100%;" name="umkm_id">
+                                @if ($data->umkm_id != NULL)
+                                    <option value="{{ $data->umkm_id }}" selected>{{$data->umkm_name}}</option>
+                                @endif
+                            </select>
+                        @endif
                     </div>
                 </div>
                 <div class="col-sm-6">
