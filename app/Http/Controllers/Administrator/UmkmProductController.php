@@ -29,6 +29,15 @@ class UmkmProductController extends Controller
         ->orderBy("umkm_products.name","asc");
 
         return DataTables::of($datas)
+        ->editColumn('name', function ($umkmProduct) {
+            return '<a href="' .
+                ($umkmProduct->url_image != null ? $umkmProduct->url_image :  "/storage/image/static/empty.png") .
+                '" target="_blank"><img alt="image" class="table-avatar align-middle rounded" width="30px" height="30px" src="' .
+                ($umkmProduct->url_image != null ? $umkmProduct->url_image :  "/storage/image/static/empty.png") .
+                '"></a>' .
+                ' ' .
+                $umkmProduct->name;
+        })
         ->editColumn('umkm_name', function ($umkmProduct) {
            return $umkmProduct->umkm_name;
         })
@@ -53,7 +62,7 @@ class UmkmProductController extends Controller
                 </a>';
             return $show.$edit.$delete;
         })
-        ->rawColumns(['action'])
+        ->rawColumns(['action','name'])
         ->make(true);
     }
 
@@ -81,7 +90,8 @@ class UmkmProductController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'umkm_id' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'url_image' => 'required'
         ]);
 
         DB::beginTransaction();
@@ -109,7 +119,7 @@ class UmkmProductController extends Controller
             report($e);
             return abort(500);
         }
-        Alert::alert('Success', 'Product UMKM Telah di Daftarkan', 'success');
+        Alert::alert('Success', 'Produk UMKM Telah di Daftarkan', 'success');
         return redirect()->route('administrator.umkm-product.index');
     }
 
@@ -119,9 +129,13 @@ class UmkmProductController extends Controller
      * @param  \App\Models\UmkmProduct  $umkmProduct
      * @return \Illuminate\Http\Response
      */
-    public function show(UmkmProduct $umkmProduct)
+    public function show($id)
     {
-        //
+        $data =  UmkmProduct::select('umkm_products.*', 'umkm.name as umkm_name')
+        ->leftJoin('umkms as umkm', 'umkm.id', '=', 'umkm_products.umkm_id')->find($id);
+        $title = "Lihat Produk UMKM";
+        $action = "show";
+        return view('layouts.administrator.umkm-product.show', compact('title','data','action'));
     }
 
     /**

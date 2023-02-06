@@ -11,7 +11,7 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Master UMKM</a></li>
+            <li class="breadcrumb-item"><a href="#">Produk UMKM</a></li>
             <li class="breadcrumb-item"><a href="#">{{ $title }}</a></li>
         </ol>
     </div>
@@ -22,7 +22,7 @@
 <div class="row">
     <form role="form" action="#"  class="col-md-12">
         @csrf
-        @include("layouts.administrator.umkm.fields")
+        @include("layouts.administrator.umkm-product.fields")
     </form>
 </div>
 @stop
