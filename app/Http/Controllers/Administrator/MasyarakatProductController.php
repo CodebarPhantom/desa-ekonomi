@@ -111,16 +111,71 @@ class MasyarakatProductController extends Controller
 
     public function edit($id)
     {
-
+        $data =  MasyarakatProduct::find($id);
+        $title = "Ubah Produk Masyarakat";
+        $action = "edit";
+        return view('layouts.administrator.masyarakat-product.edit', compact('title','data','action'));
     }
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            //'url_image' => 'required',
+        ]);
 
+        $masyarakatProduct = MasyarakatProduct::findOrFail($id);
+
+
+        DB::beginTransaction();
+        try {
+
+
+            if ($request->url_image) {
+                Storage::delete(str_replace(url('storage'), 'public', $masyarakatProduct->url_image));
+                $filePathLogo = $request->url_image->store('public/image/produk-masyarakat');
+                $fileUrlLogo = '/storage' . str_replace('public', '', $filePathLogo);
+                //$tourismInfo->url_cover_image = $filePathUrlCoverImage;
+            }
+
+            $masyarakatProduct->name = $request->name;
+            $masyarakatProduct->description = $request->description;
+            $masyarakatProduct->url_image = isset($request->url_image) ? $fileUrlLogo :  $masyarakatProduct->url_image;
+            $masyarakatProduct->save();
+
+            DB::commit();
+
+
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+
+        Alert::alert('Success', 'Produk Masyarkat ' . $masyarakatProduct->name . ' Telah di Ubah', 'info');
+        return redirect()->route('administrator.masyarakat-product.index');
     }
 
     public function destroy($id)
     {
+        $masyarakatProduct = MasyarakatProduct::findOrFail($id);
+
+        DB::beginTransaction();
+        try {
+
+            MasyarakatProduct::destroy($id);
+            DB::commit();
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+
+        Alert::alert('Deleted', 'Produk Masyarakat ' . $masyarakatProduct->name . ' Telah di dihapus', 'error');
+        return redirect()->route('administrator.masyarakat-product.index');
 
     }
 
