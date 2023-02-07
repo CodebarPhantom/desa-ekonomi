@@ -44,8 +44,6 @@
             // Initialize select2
             //initailizeSelect2();
 
-            $('.js-example-basic-single').select2();
-
             $("#select2-umkm").select2({
                 //placeholder: 'Pilih UMKM'
                 minimumInputLength: 2,

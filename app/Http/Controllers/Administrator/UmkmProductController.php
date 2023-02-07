@@ -144,9 +144,14 @@ class UmkmProductController extends Controller
      * @param  \App\Models\UmkmProduct  $umkmProduct
      * @return \Illuminate\Http\Response
      */
-    public function edit(UmkmProduct $umkmProduct)
+    public function edit($id)
     {
-        //
+        $data =  UmkmProduct::select('umkm_products.*', 'umkm.name as umkm_name')
+                ->leftJoin('umkms as umkm', 'umkm.id', '=', 'umkm_products.umkm_id')
+                ->find($id);
+        $title = "Ubah Produk UMKM";
+        $action = "edit";
+        return view('layouts.administrator.umkm-product.edit', compact('title','data','action'));
     }
 
     /**
@@ -156,9 +161,46 @@ class UmkmProductController extends Controller
      * @param  \App\Models\UmkmProduct  $umkmProduct
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UmkmProduct $umkmProduct)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'umkm_id' => 'required',
+            'description' => 'required',
+        ]);
+
+        $umkmProduct = UmkmProduct::findOrFail($id);
+
+
+        DB::beginTransaction();
+        try {
+
+
+            if ($request->url_image) {
+                Storage::delete(str_replace(url('storage'), 'public', $umkmProduct->url_image));
+                $filePathLogo = $request->url_image->store('public/image/product-umkm');
+                $fileUrlLogo = '/storage' . str_replace('public', '', $filePathLogo);
+                //$tourismInfo->url_cover_image = $filePathUrlCoverImage;
+            }
+
+            $umkmProduct->name = $request->name;
+            $umkmProduct->umkm_id = $request->umkm_id;
+            $umkmProduct->description = $request->description;
+            $umkmProduct->url_image = isset($request->url_image) ? $fileUrlLogo :  $umkmProduct->url_image;
+            $umkmProduct->save();
+
+            DB::commit();
+
+
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+
+        Alert::alert('Success', 'Produk UMKM ' . $umkmProduct->name . ' Telah di Ubah', 'info');
+        return redirect()->route('administrator.umkm-product.index');
     }
 
     /**
@@ -167,9 +209,24 @@ class UmkmProductController extends Controller
      * @param  \App\Models\UmkmProduct  $umkmProduct
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UmkmProduct $umkmProduct)
+    public function destroy($id)
     {
-        //
+        $umkmProduct = UmkmProduct::findOrFail($id);
+
+        DB::beginTransaction();
+        try {
+
+            UmkmProduct::destroy($id);
+            DB::commit();
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+
+        Alert::alert('Deleted', 'Produk UMKM ' . $umkmProduct->name . ' Telah di dihapus', 'error');
+        return redirect()->route('administrator.umkm-product.index');
     }
 
 
