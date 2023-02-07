@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Administrator\MasyarakatProductController;
 use App\Http\Controllers\Administrator\UserController;
 use App\Http\Controllers\Administrator\PariwisataController;
 use App\Http\Controllers\Administrator\UmkmController;
@@ -80,6 +81,17 @@ Route::middleware(['auth'])->group(function() {
             Route::get('{id}/edit', [UmkmProductController::class,'edit'])->name('edit');
             Route::put('{id}', [UmkmProductController::class,'update'])->name('update');
             Route::delete('{id}', [UmkmProductController::class,'destroy'])->name('destroy');
+        });
+
+        Route::prefix('/masyarakat-product')->as('masyarakat-product.')->group(function() {
+            Route::get('', [MasyarakatProductController::class,'index'])->name('index');
+            Route::get('create', [MasyarakatProductController::class,'create'])->name('create');
+            Route::post('', [MasyarakatProductController::class,'store'])->name('store');
+            Route::post('data', [MasyarakatProductController::class,'data'])->name('data');
+            Route::get('{id}', [MasyarakatProductController::class,'show'])->name('show');
+            Route::get('{id}/edit', [MasyarakatProductController::class,'edit'])->name('edit');
+            Route::put('{id}', [MasyarakatProductController::class,'update'])->name('update');
+            Route::delete('{id}', [MasyarakatProductController::class,'destroy'])->name('destroy');
         });
     });
 });

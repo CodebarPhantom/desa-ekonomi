@@ -340,7 +340,9 @@ return [
                 [
                     'text' => 'Produk Masyarakat',
                     'icon'    => 'fas fa-fw fa-shopping-bag',
-                    'url'  => '#',
+                    'url'  => 'administrator/masyarakat-product',
+                    'active' => ['administrator/masyarakat-product*']
+
                 ],
                 [
                     'text' => 'Event Masyarakat',
@@ -503,6 +505,16 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        'TinyMCE' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js',
                 ],
             ],
         ],
