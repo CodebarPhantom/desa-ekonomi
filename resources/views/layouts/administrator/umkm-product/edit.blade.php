@@ -80,7 +80,7 @@
 
             reader.readAsDataURL(this.files[0]);
 
-           });
+        });
     });
 
     $('.custom-file input').change(function (e) {

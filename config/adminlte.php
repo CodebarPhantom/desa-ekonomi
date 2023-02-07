@@ -439,7 +439,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
@@ -509,12 +509,12 @@ return [
             ],
         ],
         'TinyMCE' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js',
+                    'location' => '//cdn.tiny.cloud/1/88sysgy3de5twnl1vna0apf5dkw6ukgpi3c3bnsmj3fjqrz3/tinymce/6/tinymce.min.js',
                 ],
             ],
         ],

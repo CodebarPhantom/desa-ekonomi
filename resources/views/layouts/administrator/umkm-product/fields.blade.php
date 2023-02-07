@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <label>Gambar Produk</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input"  name="url_image" id="customFile-1">
+                                <input type="file" class="custom-file-input"  name="url_image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="form-group">
                             <label>Gambar Produk</label>
                             <div class="custom-file">
-                                <input id="image" type="file" class="custom-file-input"  name="url_image" id="customFile-1">
+                                <input id="image" type="file" class="custom-file-input"  name="url_image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
                             <a href="{{ $data->url_image }}" target="_blank"><img alt="image" id="preview-image-before-upload" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_image  }}"></a>

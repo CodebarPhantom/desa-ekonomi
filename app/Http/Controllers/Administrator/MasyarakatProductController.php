@@ -23,6 +23,15 @@ class MasyarakatProductController extends Controller
         $datas = MasyarakatProduct::orderBy("name","asc");
 
         return DataTables::of($datas)
+        ->editColumn('name', function ($umkmProduct) {
+            return '<a href="' .
+                ($umkmProduct->url_image != null ? $umkmProduct->url_image :  "/storage/image/static/empty.png") .
+                '" target="_blank"><img alt="image" class="table-avatar align-middle rounded" width="30px" height="30px" src="' .
+                ($umkmProduct->url_image != null ? $umkmProduct->url_image :  "/storage/image/static/empty.png") .
+                '"></a>' .
+                ' ' .
+                $umkmProduct->name;
+        })
         ->editColumn('action', function ($masyarakatProduct) {
             $show =
                 '<a href="' .
@@ -44,23 +53,60 @@ class MasyarakatProductController extends Controller
                 </a>';
             return $show.$edit.$delete;
         })
-        ->rawColumns(['action'])
+        ->rawColumns(['name','action'])
         ->make(true);
     }
 
     public function create()
     {
-
+        $data = new MasyarakatProduct();
+        $title = "Buat Produk Masyarakat";
+        $action = "create";
+        return view('layouts.administrator.masyarakat-product.create', compact('title','data','action'));
     }
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'url_image' => 'required',
+        ]);
 
+        DB::beginTransaction();
+        try {
+
+            $fileUrlLogo = null;
+
+            if ($request->url_image) {
+                $filePathLogo = $request->url_image->store('public/image/produk-masyarakat');
+                $fileUrlLogo = '/storage' . str_replace('public', '', $filePathLogo);
+            }
+
+            $masyarakatProduct = new MasyarakatProduct();
+            $masyarakatProduct->name = $request->name;
+            $masyarakatProduct->description = $request->description;
+            $masyarakatProduct->url_image = isset($request->url_image) ? $fileUrlLogo : null;
+            $masyarakatProduct->save();
+
+            DB::commit();
+
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            report($e);
+            return abort(500);
+        }
+        Alert::alert('Success', 'Produk Masyarkat Telah di Daftarkan', 'success');
+        return redirect()->route('administrator.masyarakat-product.index');
     }
 
     public function show($id)
     {
-
+        $data =  MasyarakatProduct::find($id);
+        $title = "Lihat Produk Masyarakat";
+        $action = "show";
+        return view('layouts.administrator.masyarakat-product.show', compact('title','data','action'));
     }
 
     public function edit($id)

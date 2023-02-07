@@ -43,30 +43,6 @@
     });
 
     $(document).ready(function() {
-        $("#select2-umkm").select2({
-            //placeholder: 'Pilih UMKM'
-            minimumInputLength: 2,
-            //theme: 'bootstrap4',
-            ajax: {
-                url : "{{ route('administrator.umkm.json') }}",
-                method : "POST",
-                dataType : 'json',
-                delay: 1000,
-                data: function(params) {
-                    var query = {
-                        search: params.term,
-                        page: params.page || 1
-                    }
-                    // Query parameters will be ?search=[term]&page=[page]
-                    return query;
-                },
-                processResults: function (response) {
-                    return {
-                        results: response
-                    };
-                }
-            }
-        });
 
         $('#image').change(function(){
 

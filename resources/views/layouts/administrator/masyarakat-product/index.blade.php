@@ -78,7 +78,6 @@
                 },
                 columns: [
                     { title: "{{ __('Nama') }}", data: 'name', name: 'name', defaultContent: '-', class: 'text-center' },
-                    { title: "{{ __('Description') }}", data: 'description', name: 'description', defaultContent: '-', class: 'text-center',searchable:false, orderable: false },
                     { title: "{{ __('Action') }}", data: 'action', name: 'action', defaultContent: ' - ', class: 'text-center',searchable:false, orderable: false },
                 ]
             });
