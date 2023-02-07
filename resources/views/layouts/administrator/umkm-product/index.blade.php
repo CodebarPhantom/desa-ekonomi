@@ -77,7 +77,7 @@
                     headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }
                 },
                 columns: [
-                    { title: "{{ __('Nama') }}", data: 'name', name: 'name', defaultContent: '-', class: 'text-center' },
+                    { title: "{{ __('Nama') }}", data: 'name', name: 'name', defaultContent: '-', class: 'text-center', orderable: false },
                     { title: "{{ __('UMKM') }}", data: 'umkm_name', name: 'umkm_name', defaultContent: '-', class: 'text-center',searchable:false, orderable: false },
                     { title: "{{ __('Action') }}", data: 'action', name: 'action', defaultContent: ' - ', class: 'text-center',searchable:false, orderable: false },
                 ]
