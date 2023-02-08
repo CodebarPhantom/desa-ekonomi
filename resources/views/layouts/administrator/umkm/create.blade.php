@@ -32,6 +32,7 @@
 @stop
 
 @push('js')
+<script src="https://cdn.tiny.cloud/1/88sysgy3de5twnl1vna0apf5dkw6ukgpi3c3bnsmj3fjqrz3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script type="text/javascript">
 
     $('.custom-file input').change(function (e) {
@@ -39,6 +40,23 @@
             $(this).next('.custom-file-label').html(e.target.files[0].name);
         }
     });
+
+    tinymce.init({
+            selector: 'textarea#tinymce-editor',
+            //height: 500,
+            menubar: false,
+            plugins: [
+                'autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        });
+
 
 </script>
 

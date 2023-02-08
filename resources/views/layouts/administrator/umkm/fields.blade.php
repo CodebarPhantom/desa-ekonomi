@@ -50,10 +50,10 @@
                         <input type="text" name="address" @if ($action ===  "show") disabled @endif class="form-control  @error('address') is-invalid @enderror" placeholder="Alamat ..." value="{{ old('address', $data->address) }}"  required>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Description ..." rows="2" @if ($action ===  "show") disabled @endif required>{{ old('description', $data->description) }}</textarea>
+                        <textarea id="tinymce-editor" name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Description ..." rows="2" @if ($action ===  "show") disabled @endif required>{{ old('description', $data->description) }}</textarea>
                     </div>
                 </div>
 
