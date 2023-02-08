@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Administrator\MasyarakatEventController;
 use App\Http\Controllers\Administrator\MasyarakatProductController;
 use App\Http\Controllers\Administrator\UserController;
 use App\Http\Controllers\Administrator\PariwisataController;
@@ -92,6 +93,17 @@ Route::middleware(['auth'])->group(function() {
             Route::get('{id}/edit', [MasyarakatProductController::class,'edit'])->name('edit');
             Route::put('{id}', [MasyarakatProductController::class,'update'])->name('update');
             Route::delete('{id}', [MasyarakatProductController::class,'destroy'])->name('destroy');
+        });
+
+        Route::prefix('/masyarakat-event')->as('masyarakat-event.')->group(function() {
+            Route::get('', [MasyarakatEventController::class,'index'])->name('index');
+            Route::get('create', [MasyarakatEventController::class,'create'])->name('create');
+            Route::post('', [MasyarakatEventController::class,'store'])->name('store');
+            Route::post('data', [MasyarakatEventController::class,'data'])->name('data');
+            Route::get('{id}', [MasyarakatEventController::class,'show'])->name('show');
+            Route::get('{id}/edit', [MasyarakatEventController::class,'edit'])->name('edit');
+            Route::put('{id}', [MasyarakatEventController::class,'update'])->name('update');
+            Route::delete('{id}', [MasyarakatEventController::class,'destroy'])->name('destroy');
         });
     });
 });

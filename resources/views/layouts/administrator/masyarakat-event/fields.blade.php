@@ -4,12 +4,12 @@
             <div class="d-flex">
                 <div class="mr-auto">
                     <h3 class="card-title mt-1">
-                        <i class="fa fa-shopping-bag"></i>
+                        <i class="fa fa-calendar-alt"></i>
                             &nbsp; {{ $title }}
                     </h3>
                 </div>
                 <div class="mr-1">
-                    <a href="{{ route('administrator.masyarakat-product.index') }}" class="btn btn-secondary btn-flat btn-sm">
+                    <a href="{{ route('administrator.masyarakat-event.index') }}" class="btn btn-secondary btn-flat btn-sm">
                         <i class="fa fa-arrow-left"></i>
                         &nbsp;&nbsp; Kembali
                     </a>
@@ -55,7 +55,7 @@
                 @if ($action === "create")
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Gambar Produk</label>
+                            <label>Gambar Event</label>
                             <div class="custom-file">
                                 <input id="image" type="file" class="custom-file-input"  name="url_image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
@@ -66,7 +66,7 @@
                 @elseif ($action  === "edit")
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Gambar Produk</label>
+                            <label>Gambar Event</label>
                             <div class="custom-file">
                                 <input id="image" type="file" class="custom-file-input"  name="url_image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
@@ -77,7 +77,7 @@
                 @else
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="logoFile">Gambar Produk</label><br/>
+                        <label for="logoFile">Gambar Event</label><br/>
                         <a href="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}"></a>
                     </div>
                 </div>

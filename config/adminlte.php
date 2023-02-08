@@ -347,7 +347,8 @@ return [
                 [
                     'text' => 'Event Masyarakat',
                     'icon'    => 'far fa-fw fa-calendar-alt',
-                    'url'  => '#',
+                    'url'  => 'administrator/masyarakat-event',
+                    'active' => ['administrator/masyarakat-event*']
                 ],
                 [
                     'text' => 'Kreativitas Masyarakat',

@@ -73,7 +73,7 @@
                 },
                 ajax: {
                     method: 'POST',
-                    url: "{{ route('administrator.masyarakat-product.data') }}",
+                    url: "{{ route('administrator.masyarakat-event.data') }}",
                     headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }
                 },
                 columns: [
