@@ -53,7 +53,7 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea id="tinymce-editor" name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Description ..." rows="2" @if ($action ===  "show") disabled @endif required>{{ old('description', $data->description) }}</textarea>
+                        <textarea id="tinymce-editor" name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Description ..." rows="2" @if ($action ===  "show") disabled @endif>{{ old('description', $data->description) }}</textarea>
                     </div>
                 </div>
 
