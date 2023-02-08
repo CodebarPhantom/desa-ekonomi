@@ -50,7 +50,7 @@
                         <input type="text" name="address" @if ($action ===  "show") disabled @endif class="form-control  @error('address') is-invalid @enderror" placeholder="Alamat ..." value="{{ old('address', $data->address) }}"  required>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="form-group">
                         <label>Kategori</label>
                         <select class="custom-select" @if ($action ===  "show") disabled @endif name="category">
@@ -66,10 +66,10 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Description ..." rows="2" @if ($action ===  "show") disabled @endif required>{{ old('description', $data->description) }}</textarea>
+                        <textarea id="tinymce-editor" name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Description ..." rows="2" @if ($action ===  "show") disabled @endif>{{ old('description', $data->description) }}</textarea>
                     </div>
                 </div>
 
@@ -127,24 +127,24 @@
                         <iframe width="400" height="400" src="{{ $data->url_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 @else
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="logoFile">Logo Pariwisata</label><br/>
-                        <a href="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}"></a>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="logoFile">Logo Pariwisata</label><br/>
+                            <a href="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="logoFile">Gambar Pariwisata</label><br/>
-                        <a href="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="400" height="400" src="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}"></a>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="logoFile">Gambar Pariwisata</label><br/>
+                            <a href="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="400" height="400" src="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="logoFile">URL Video</label><br/>
-                        <iframe width="400" height="400" src="{{ $data->url_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="logoFile">URL Video</label><br/>
+                            <iframe width="400" height="400" src="{{ $data->url_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>
