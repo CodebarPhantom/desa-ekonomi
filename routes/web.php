@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Administrator\MasyarakatCreativityController;
 use App\Http\Controllers\Administrator\MasyarakatEventController;
 use App\Http\Controllers\Administrator\MasyarakatProductController;
 use App\Http\Controllers\Administrator\UserController;
@@ -104,6 +105,17 @@ Route::middleware(['auth'])->group(function() {
             Route::get('{id}/edit', [MasyarakatEventController::class,'edit'])->name('edit');
             Route::put('{id}', [MasyarakatEventController::class,'update'])->name('update');
             Route::delete('{id}', [MasyarakatEventController::class,'destroy'])->name('destroy');
+        });
+
+        Route::prefix('/masyarakat-creativity')->as('masyarakat-creativity.')->group(function() {
+            Route::get('', [MasyarakatCreativityController::class,'index'])->name('index');
+            Route::get('create', [MasyarakatCreativityController::class,'create'])->name('create');
+            Route::post('', [MasyarakatCreativityController::class,'store'])->name('store');
+            Route::post('data', [MasyarakatCreativityController::class,'data'])->name('data');
+            Route::get('{id}', [MasyarakatCreativityController::class,'show'])->name('show');
+            Route::get('{id}/edit', [MasyarakatCreativityController::class,'edit'])->name('edit');
+            Route::put('{id}', [MasyarakatCreativityController::class,'update'])->name('update');
+            Route::delete('{id}', [MasyarakatCreativityController::class,'destroy'])->name('destroy');
         });
     });
 });

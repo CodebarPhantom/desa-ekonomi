@@ -353,7 +353,8 @@ return [
                 [
                     'text' => 'Kreativitas Masyarakat',
                     'icon'    => 'fas fa-fw fa-palette',
-                    'url'  => '#',
+                    'url'  => 'administrator/masyarakat-creativity',
+                    'active' => ['administrator/masyarakat-creativity*']
                 ]
             ],
         ],
