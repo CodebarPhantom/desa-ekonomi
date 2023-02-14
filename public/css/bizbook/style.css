@@ -210,7 +210,7 @@ div#review_success {
     color: #1ca54e;
     margin: 0px;
     font-size: 13px;
-    font-weight: 500;    
+    font-weight: 500;
 }
 .log p{
 }
@@ -318,7 +318,7 @@ div#event_detail_enq_success p{
     border-radius: 0px;
     background: url(../images/city-bg.png) no-repeat #fff;
     background-position: right bottom;
-    background-size: 100%;    
+    background-size: 100%;
 }
 .hm3-auto-ban .rhs .hom-col-req form{padding: 15px 35px 30px 35px;}
 .hm3-auto-ban .rhs .hom-col-req h4{color: #000;font-size: 18px;font-family: 'Poppins';line-height: 30px;font-weight: 600;}
@@ -795,7 +795,7 @@ div#event_detail_enq_success p{
 .pmenu-spri ul li a:hover{
     color: #0b78cf;
     text-decoration: underline;
-    padding-left: 25px;    
+    padding-left: 25px;
 }
 .pmenu-spri ul li a.act{
     /* border-bottom: 1px solid #1070bd; */
@@ -927,13 +927,13 @@ div#event_detail_enq_success p{
      margin-left: -20px!important;
      margin-top: -120%;
      opacity: 0;
-     transition: all 0.8s 
+     transition: all 0.8s
 }
  .dir-ani-btn:active:after {
      padding: 0;
      margin: 0;
      opacity: 1;
-     transition: 0s 
+     transition: 0s
 }
 .top-log{
     float: left;
@@ -1247,11 +1247,11 @@ div#event_detail_enq_success p{
 border-radius: 30px;
     box-shadow: 0 5px 41px -14px rgba(60,63,66,.32);
     color: #40454a;
-    max-width: 100%;  
+    max-width: 100%;
         width: 384px;
     border: 1px solid #e9e9ef;
     font-weight: 600;
-    font-family: 'Quicksand', sans-serif;    
+    font-family: 'Quicksand', sans-serif;
 }
 .ban-ql{
     margin: 0 auto;
@@ -2771,7 +2771,7 @@ left: -5px;
     z-index: 99;
     display: inline-block;
     left: 68%;
-    display: none;    
+    display: none;
 }
 .fil-mob-clo i {}
 .hom-eve-lhs-2{
@@ -3529,7 +3529,7 @@ left: -5px;
     right: 0px;
     top: 0px;
     bottom: 0px;
-    z-index: 5;    
+    z-index: 5;
 }
 .all-list-sh .eve-box div:nth-child(2) span{
     float: left;
@@ -3604,7 +3604,7 @@ left: -5px;
     color: #FF9800;
     font-size: 18px;
     width: 12px;
-} 
+}
 .all-list-sh .eve-box div:nth-child(2) h4{
     padding-bottom: 10px;
     margin: 0px;
@@ -3808,7 +3808,7 @@ left: -5px;
 }
 .auth{
     position: relative;
-    overflow: hidden;    
+    overflow: hidden;
 }
 .auth img, .eve-box .auth img{
 width: 36px !important;
@@ -3825,7 +3825,7 @@ width: 36px !important;
     font-weight: 400;
     color: #ac836d;
     line-height: 15px;
-    float: left;    
+    float: left;
 }
 .auth h4{
     margin: 0px;
@@ -3838,7 +3838,7 @@ width: 36px !important;
     margin-top: -7px;
     font-weight: 600;
     text-align: left;
-    padding-left: 0px;    
+    padding-left: 0px;
 }
 .auth .fclick{}
 /*-------------------------------------------------*/
@@ -3946,7 +3946,7 @@ width: 36px !important;
     background: #FF9800;
     padding: 1px 5px;
     border-radius: 2px;
-    
+
 }
 .list-rat-all .rat{
     float: left;
@@ -3957,7 +3957,7 @@ width: 36px !important;
 .list-rat-all span{
     float: left;
     font-size: 12px;
-    padding: 5px 0px 0px 0px;    
+    padding: 5px 0px 0px 0px;
 }
 .pg-list-1-left .rat{
 }
@@ -3972,7 +3972,7 @@ width: 36px !important;
 .list-foot-abo .list-rat-all .rat i{
 color: #FF9800;
     font-size: 20px;
-    width: 14px;    
+    width: 14px;
 }
 .list-foot-abo .list-rat-all .rat i.ratstar{color: #d4d4d4;}
 .rat i.ratstar{color: #d4d4d4;}
@@ -4296,13 +4296,13 @@ color: #FF9800;
     margin-bottom: 0px;
 }
 .share-btn ul li:nth-child(1) a {
-    
+
 }
 .share-btn ul li:nth-child(2) a {
-    
+
 }
 .share-btn ul li:nth-child(3) a {
-    
+
 }
 .share-btn ul li a {
     /* padding: 6px 10px; */
@@ -4766,7 +4766,7 @@ background: #F44336;
     margin-bottom: 10px;
     display: inline-block;
     font-weight: 500;
-    cursor: pointer;    
+    cursor: pointer;
 }
 .list-pg-guar-img {
     display: inline-block;
@@ -5108,7 +5108,7 @@ background: #F44336;
 }
 
 .lis-pro-badg:before, .lis-pro-badg:after{
-    
+
 }
 .lis-pro-badg:before{
  content: '';
@@ -5392,7 +5392,7 @@ background: #F44336;
     margin: 2px 0px 0px -24px;}
 .list-ban-btn ul li .cta-rev{
     background: #d4ffd6;
-    border: 1px solid #d4ffd6;    
+    border: 1px solid #d4ffd6;
 }
 .list-ban-btn ul li span.pulse{
     background: #f44336;
@@ -5525,7 +5525,7 @@ background: #F44336;
 }
 @keyframes pulse {
     0% {
-        -moz-box-shadow: 0 0 0 0 rgb(178, 221, 255)
+        -moz-box-shadow: 0 0 0 0 rgb(178, 221, 255);
         box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
     }
     70% {
@@ -5908,7 +5908,7 @@ background: #F44336;
     background: #2432405e;
     left: 0px;
     transition: all ease 0.5s;
-    background: linear-gradient(to bottom, #ffffff00, #0b253aba);    
+    background: linear-gradient(to bottom, #ffffff00, #0b253aba);
 }
 .list-det-rel-pre ul li .land-pack-grid .list-rat-all{
     padding: 0px 15px 7px 15px;
@@ -7006,7 +7006,7 @@ background: #F44336;
 }
 .nav-tabs .nav-link{
 font-size: 12px;
-    font-weight: 600;    
+    font-weight: 600;
 }
 .ud-cen-s2 h2, .ud-cen-s3 h2{
     font-size: 15px;
@@ -7122,10 +7122,10 @@ font-size: 12px;
 .ud-rhs-sec-1 ul{
     min-height: 100px;
     max-height: 265px;
-    overflow-y: hidden;    
+    overflow-y: hidden;
 }
 .ud-rhs-sec-1 ul:hover{
-    overflow-y: auto;    
+    overflow-y: auto;
 }
 .ud-rhs-sec-1 h4{
 }
@@ -8169,7 +8169,7 @@ font-size: 12px;
     background: url(../images/face.jpg) #edf6fd;
     background-size: 100px;
     left: 0px;
-    top: 0px;    
+    top: 0px;
 }
 .us-pro{
     float: left;
@@ -10248,7 +10248,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
     padding: 2px 10px;
     border-radius: 2px;
     text-transform: uppercase;
-    letter-spacing: 1px;    
+    letter-spacing: 1px;
 }
 .pro-pbox-2 .veri:before{}
 .pro-pbox-2 .pro-cost{
@@ -10618,7 +10618,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
 }
 .all-pro-box:hover{
     box-shadow: 0px 9px 27px -16px #33333387;
-    transform: translateY(-3px);    
+    transform: translateY(-3px);
 }
 .all-pro-img{padding: 10px;}
 .all-pro-img img{
@@ -10722,7 +10722,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
 .comity-all-user{
     padding: 60px 0px;
     float: left;
-    width: 100%;   margin-bottom:100px; 
+    width: 100%;   margin-bottom:100px;
 }
 .comity-all-user ul{}
 .comity-all-user ul li{
@@ -10765,7 +10765,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
     color: #333;
     display: block;
     font-size: 16px;
-    font-weight: 600;    
+    font-weight: 600;
 }
 .pro-fol-gr h4{
     text-align: center;
@@ -10871,7 +10871,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
     left: 24px;
     top: 70px;
     z-index: 15;
-    display: none;    
+    display: none;
 }
 .mob-map-filt i{
     font-size: 24px;
@@ -11464,7 +11464,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
     background: url(../images/all-job-bg.jpg) no-repeat;
     padding: 40px 0px 130px 0px;
     margin-top: 55px;
-    position: relative;    
+    position: relative;
 }
 .job-det-pg-ban:before{    background: #364250b0;}
 .job-comp-pro{}
@@ -11488,7 +11488,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
     margin-bottom: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;    
+    letter-spacing: 0.5px;
 }
 .job-det-desc .s1 .job-comp-pro{
     border: 1px solid #f4f4f4;
@@ -12160,7 +12160,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
     border-radius: 3px;
     margin: 5px 5px 5px 0px;
     display: inline-block;
-    font-size:12px;font-weight: 500;    
+    font-size:12px;font-weight: 500;
 }
 .inp-ttip{
     position: absolute;
@@ -12445,7 +12445,7 @@ div#pop_enq_success p{color: #106e43;margin:0px;}
 color: #333;
     font-weight: 700;
     padding: 0px 0px 5px 0px;
-    font-size: 16px;    
+    font-size: 16px;
 }
 .edit-comp-pro{
     background: #edf6fd;
@@ -12855,7 +12855,7 @@ color: #333;
 }
 .radi-v4 input{}
 .radi-v4 label{
-} 
+}
 .radi-v4 [type="radio"]:checked,
 .radi-v4 [type="radio"]:not(:checked) {
     position: absolute;
@@ -13190,7 +13190,7 @@ color: #333;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
-    
+
     .dir-home-nav-bot ul li:nth-child(1) {
     width: 100%;
 }
@@ -13464,7 +13464,7 @@ color: #333;
     .all-listing .col-md-9{
         padding: 15px 0px 30px 15px;
     background: #f5f5f5;
-    border-radius: 5px;    
+    border-radius: 5px;
     }
     .list-map .list-map-filt{
         position: fixed;
@@ -13855,7 +13855,7 @@ color: #333;
     table caption {
         font-size: 1.3em;
     }
-    
+
     .pro-fol-gr span {
         padding: 5px 25px;
         font-size: 10px;
@@ -14601,7 +14601,7 @@ color: #333;
     font-size: 18px;
     padding-top: 0px;
     margin-top: 15px;
-}    
+}
 }
 @media screen and (max-width:420px){
     .pmenu-cat ul li, .pmenu-eve ul li{
