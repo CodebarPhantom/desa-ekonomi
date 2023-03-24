@@ -7,6 +7,7 @@ use App\Http\Controllers\Administrator\UserController;
 use App\Http\Controllers\Administrator\PariwisataController;
 use App\Http\Controllers\Administrator\UmkmController;
 use App\Http\Controllers\Administrator\UmkmProductController;
+use App\Http\Controllers\User\HomePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +32,11 @@ Auth::routes([
     'reset' => false, // Password Reset Routes...
 ]);
 
-Route::get('/', function () {
-        return view('layouts.user.index');
-    });
+Route::prefix('/')->as('user.')->group(function() {
+
+    Route::get('', [HomePageController::class,'index'])->name('index');
+});
+
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

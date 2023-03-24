@@ -27,9 +27,9 @@ class MasyarakatEventController extends Controller
         return DataTables::of($datas)
         ->editColumn('name', function ($masyarakatEvent) {
             return '<a href="' .
-                ($masyarakatEvent->url_image != null ? $masyarakatEvent->url_image :  "/storage/image/static/empty.png") .
+                ($masyarakatEvent->url_image != null ? $masyarakatEvent->url_image :  asset('images/static/empty.png')) .
                 '" target="_blank"><img alt="image" class="table-avatar align-middle rounded" width="30px" height="30px" src="' .
-                ($masyarakatEvent->url_image != null ? $masyarakatEvent->url_image :  "/storage/image/static/empty.png") .
+                ($masyarakatEvent->url_image != null ? $masyarakatEvent->url_image :  asset('images/static/empty.png')) .
                 '"></a>' .
                 ' ' .
                 $masyarakatEvent->name;

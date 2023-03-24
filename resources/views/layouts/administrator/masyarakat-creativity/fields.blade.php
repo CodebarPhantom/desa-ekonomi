@@ -60,7 +60,7 @@
                                 <input id="image" type="file" class="custom-file-input"  name="url_image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
-                            <img alt="image" id="preview-image-before-upload" class="table-avatar align-middle rounded" width="45%" height="45%" src="/storage/image/static/empty.png">
+                            <img alt="image" id="preview-image-before-upload" class="table-avatar align-middle rounded" width="45%" height="45%" src=asset('images/static/empty.png')>
                         </div>
                     </div>
                 @elseif ($action  === "edit")
@@ -78,7 +78,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="logoFile">Gambar Kreatifitas</label><br/>
-                        <a href="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}"></a>
+                        <a href="{{ $data->url_image != null ? $data->url_image : asset('images/static/empty.png') }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_image != null ? $data->url_image : asset('images/static/empty.png') }}"></a>
                     </div>
                 </div>
                 @endif

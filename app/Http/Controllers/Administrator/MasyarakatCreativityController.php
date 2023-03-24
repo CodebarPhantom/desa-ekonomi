@@ -27,9 +27,9 @@ class MasyarakatCreativityController extends Controller
         return DataTables::of($datas)
         ->editColumn('name', function ($masyarakatCreativity) {
             return '<a href="' .
-                ($masyarakatCreativity->url_image != null ? $masyarakatCreativity->url_image :  "/storage/image/static/empty.png") .
+                ($masyarakatCreativity->url_image != null ? $masyarakatCreativity->url_image :  asset('images/static/empty.png')) .
                 '" target="_blank"><img alt="image" class="table-avatar align-middle rounded" width="30px" height="30px" src="' .
-                ($masyarakatCreativity->url_image != null ? $masyarakatCreativity->url_image :  "/storage/image/static/empty.png") .
+                ($masyarakatCreativity->url_image != null ? $masyarakatCreativity->url_image :  asset('images/static/empty.png')) .
                 '"></a>' .
                 ' ' .
                 $masyarakatCreativity->name;

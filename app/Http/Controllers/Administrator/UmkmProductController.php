@@ -31,9 +31,9 @@ class UmkmProductController extends Controller
         return DataTables::of($datas)
         ->editColumn('name', function ($umkmProduct) {
             return '<a href="' .
-                ($umkmProduct->url_image != null ? $umkmProduct->url_image :  "/storage/image/static/empty.png") .
+                ($umkmProduct->url_image != null ? $umkmProduct->url_image :  asset('images/static/empty.png')) .
                 '" target="_blank"><img alt="image" class="table-avatar align-middle rounded" width="30px" height="30px" src="' .
-                ($umkmProduct->url_image != null ? $umkmProduct->url_image :  "/storage/image/static/empty.png") .
+                ($umkmProduct->url_image != null ? $umkmProduct->url_image :  asset('images/static/empty.png')) .
                 '"></a>' .
                 ' ' .
                 $umkmProduct->name;

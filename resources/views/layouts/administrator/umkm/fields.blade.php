@@ -82,7 +82,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="logoFile">Logo UMKM</label><br/>
-                        <a href="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo != null ? $data->url_logo : "/storage/image/static/empty.png" }}"></a>
+                        <a href="{{ $data->url_logo != null ? $data->url_logo : asset('images/static/empty.png') }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo != null ? $data->url_logo : asset('images/static/empty.png') }}"></a>
                     </div>
                 </div>
                 @endif

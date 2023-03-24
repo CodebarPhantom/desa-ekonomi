@@ -90,7 +90,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="logoFile">Gambar Produk</label><br/>
-                        <a href="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_image != null ? $data->url_image : "/storage/image/static/empty.png" }}"></a>
+                        <a href="{{ $data->url_image != null ? $data->url_image : asset('images/static/empty.png') }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_image != null ? $data->url_image : asset('images/static/empty.png') }}"></a>
                     </div>
                 </div>
                 @endif
