@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Desa Ekonomi',
+    'title' => 'Desa Cintalaksana - Desa Ekonomi',
     'title_prefix' => '',
     'title_postfix' => '',
 

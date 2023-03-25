@@ -11,8 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#76cef1" />
-	<meta name="description" content="Kick start your online directory with BizBook Directory Template. Its comes with ultimate features like listings, events, blog, community. Try Bizbook directory now!">
-	<meta name="keyword" content="bizbook directory, bizbook directory template, business directory template, php directory template, functional php template, php listing template, php dirctory database, local listing php template">
+	<meta name="description" content="Nikmati keindahan alam dan budaya Desa Ekonomi Cinta Laksana di Wisata Ekonomi Cinta Laksana">
 
 
     <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
@@ -41,7 +40,7 @@
 		<div class="cr">
 			<div class="container">
 				<div class="row">
-					<p>Copyright © 2017-2021 <a href="https://rn53themes.net/" target="_blank">Rn53 Themes</a>. Proudly powered by <a href="https://rn53themes.net/" target="_blank">Rn53Themes.net</a>
+					<p>Copyright © {{ date('Y') }} <a href="#">Desa Cintalaksana</a>.
 					</p>
 				</div>
 			</div>
