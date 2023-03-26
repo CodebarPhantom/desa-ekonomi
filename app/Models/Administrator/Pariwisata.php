@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Pariwisata extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $casts = [
+        'created_at' => 'datetime',
+    ];
 }

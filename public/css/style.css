@@ -1049,7 +1049,7 @@ div#event_detail_enq_success p{
     left: 0px;
     z-index: 20;
     width: 100%;
-    background: #ffffff00;
+    background: #090b52;
     transition: all 0.5s ease;
 }
 .hom-top.dmact {
@@ -8753,7 +8753,7 @@ font-size: 12px;
     overflow: hidden;
 }
 .eve-deta-pg{
-    margin-top: 52px;
+    margin-top: 36px;
     float: left;
     width: 100%;
     background: #e4f4ff;
@@ -8766,7 +8766,7 @@ font-size: 12px;
 }
 .eve-deta-pg .lhs{
     float: left;
-    width: 65%;
+    width: 100%;
     position: relative;
 }
 .eve-deta-pg .lhs .img{
@@ -8847,9 +8847,10 @@ font-size: 12px;
 }
 .eve-deta-body .eve-deta-body-main .lhs{
     float: left;
-    width: 65%;
+    width: 100%;
     padding-right: 50px;
     border-right: 1px solid #e7e7e7;
+    padding-top: 50px;
 }
 .eve-deta-body .eve-deta-body-main .lhs p{
     font-size: 14px;

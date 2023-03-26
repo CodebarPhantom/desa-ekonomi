@@ -14,7 +14,7 @@
 	<meta name="description" content="Nikmati keindahan alam dan budaya Desa Ekonomi Cinta Laksana di Wisata Ekonomi Cinta Laksana">
 
 
-    <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/fav.ico')  }}" type="image/x-icon">
 	<!--== GOOGLE FONTS ==-->
 	<link href="https://fonts.googleapis.com/css?family=Oswald:700|Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
 	<!--== WEB ICON FONTS ==-->
