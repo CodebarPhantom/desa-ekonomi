@@ -24,6 +24,7 @@
                 @endif
             </div>
         </div>
+
         <div class="card-body">
             @if ($errors->all())
             <div class="alert alert-danger alert-dismissible">

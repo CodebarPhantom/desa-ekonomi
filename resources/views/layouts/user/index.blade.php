@@ -90,7 +90,7 @@
 									</div>
 									<div class="land-pack-grid-text">
                                         <h4>Kreatifitas Masyarakat</h4>
-									</div> <a href="all-listing.html" class="land-pack-grid-btn">View all listings</a>
+									</div> <a href="{{ route('user.masyarakat-creativity.index') }}" class="land-pack-grid-btn">View all listings</a>
 								</div>
 							</li>
 						</ul>

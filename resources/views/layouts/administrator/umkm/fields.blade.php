@@ -75,6 +75,7 @@
                                 <input type="file" class="custom-file-input"  name="url_logo" id="customFile-1">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
+
                             <a href="{{ $data->url_logo }}" target="_blank"><img alt="Logo" class="table-avatar align-middle rounded" width="100px" height="100px" src="{{ $data->url_logo  }}"></a>
                         </div>
                     </div>

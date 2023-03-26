@@ -8,6 +8,7 @@ use App\Http\Controllers\Administrator\PariwisataController;
 use App\Http\Controllers\Administrator\UmkmController;
 use App\Http\Controllers\Administrator\UmkmProductController;
 use App\Http\Controllers\User\HomePageController;
+use App\Http\Controllers\User\MasyarakatCreativityController as UserMasyarakatCreativityController;
 use App\Http\Controllers\User\MasyarakatEventController as UserMasyarakatEventController;
 use App\Http\Controllers\User\MasyarakatProductController as UserMasyarakatProductController;
 use App\Http\Controllers\User\PariwisataController as UserPariwisataController;
@@ -59,6 +60,10 @@ Route::prefix('/')->as('user.')->group(function() {
     Route::prefix('/masyarakat-event')->as('masyarakat-event.')->group(function() {
         Route::get('', [UserMasyarakatEventController::class,'index'])->name('index');
         Route::get('{id}/detail', [UserMasyarakatEventController::class,'detail'])->name('detail');
+    });
+    Route::prefix('/masyarakat-creativity')->as('masyarakat-creativity.')->group(function() {
+        Route::get('', [UserMasyarakatCreativityController::class,'index'])->name('index');
+        Route::get('{id}/detail', [UserMasyarakatCreativityController::class,'detail'])->name('detail');
     });
 });
 
