@@ -50,7 +50,7 @@
 									</div>
 									<div class="land-pack-grid-text">
 										<h4>UMKM</h4>
-									</div> <a href="all-listing.html" class="land-pack-grid-btn">View all listings</a>
+									</div> <a href="{{ route('user.umkm.index') }}" class="land-pack-grid-btn">View all listings</a>
 								</div>
 							</li>
 							<li>

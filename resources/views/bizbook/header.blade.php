@@ -17,7 +17,7 @@
                                 <ul id="pg-resu">
                                     <li><a href="{{ route('user.pariwisata.index') }}">Pariwisata</a>
                                     </li>
-                                    <li><a href="all-listing.html">UMKM</a>
+                                    <li><a href="{{ route('user.umkm.index') }}">UMKM</a>
                                     </li>
                                     <li><a href="all-listing.html">Produk UMKM</a>
                                     </li>
