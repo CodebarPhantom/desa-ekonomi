@@ -10,7 +10,7 @@ class PariwisataController extends Controller
 {
     public function index()
     {
-        $datas = Pariwisata::orderBy('created_at','desc')->get();
+        $datas = Pariwisata::orderBy('name','asc')->get();
 
         return view('layouts.user.pariwisata.index',compact('datas'));
     }

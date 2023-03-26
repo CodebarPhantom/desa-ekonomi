@@ -10,4 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MasyarakatEvent extends Model
 {
     use HasFactory,SoftDeletes;
+
+    protected $casts = [
+        'created_at' => 'datetime',
+    ];
 }
