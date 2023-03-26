@@ -56,7 +56,7 @@ class UmkmProductController extends Controller
                 route('administrator.umkm-product.destroy', $umkmProduct->id) .
                 '" class="btn btn-danger btn-flat btn-xs"
                 title="Delete" data-toggle="modal"
-                data-text="Apakah anda yakin untuk menghapus umkm '.$umkmProduct->name.'"
+                data-text="Apakah anda yakin untuk menghapus produk umkm '.$umkmProduct->name.'"
                 data-target="#modal-confirmation-delete" data-value="'.$umkmProduct->id.'">
                 <i class="fa fa-trash"></i>
                 </a>';

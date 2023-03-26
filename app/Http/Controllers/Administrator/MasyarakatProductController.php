@@ -47,7 +47,7 @@ class MasyarakatProductController extends Controller
                 route('administrator.masyarakat-product.destroy', $masyarakatProduct->id) .
                 '" class="btn btn-danger btn-flat btn-xs"
                 title="Delete" data-toggle="modal"
-                data-text="Apakah anda yakin untuk menghapus umkm '.$masyarakatProduct->name.'"
+                data-text="Apakah anda yakin untuk menghapus Produk Masyarakat '.$masyarakatProduct->name.'"
                 data-target="#modal-confirmation-delete" data-value="'.$masyarakatProduct->id.'">
                 <i class="fa fa-trash"></i>
                 </a>';

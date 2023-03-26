@@ -49,7 +49,7 @@ class MasyarakatCreativityController extends Controller
                 route('administrator.masyarakat-creativity.destroy', $masyarakatCreativity->id) .
                 '" class="btn btn-danger btn-flat btn-xs"
                 title="Delete" data-toggle="modal"
-                data-text="Apakah anda yakin untuk menghapus umkm '.$masyarakatCreativity->name.'"
+                data-text="Apakah anda yakin untuk menghapus Kreatifitas Masyarakat '.$masyarakatCreativity->name.'"
                 data-target="#modal-confirmation-delete" data-value="'.$masyarakatCreativity->id.'">
                 <i class="fa fa-trash"></i>
                 </a>';

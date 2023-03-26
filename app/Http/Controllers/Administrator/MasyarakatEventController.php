@@ -49,7 +49,7 @@ class MasyarakatEventController extends Controller
                 route('administrator.masyarakat-event.destroy', $masyarakatEvent->id) .
                 '" class="btn btn-danger btn-flat btn-xs"
                 title="Delete" data-toggle="modal"
-                data-text="Apakah anda yakin untuk menghapus umkm '.$masyarakatEvent->name.'"
+                data-text="Apakah anda yakin untuk menghapus Event Masyarakat '.$masyarakatEvent->name.'"
                 data-target="#modal-confirmation-delete" data-value="'.$masyarakatEvent->id.'">
                 <i class="fa fa-trash"></i>
                 </a>';
