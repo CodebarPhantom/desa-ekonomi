@@ -24,7 +24,7 @@
 					<div class="img">
 						<img src="{{ $data->url_image ?? asset('images/static/empty.png') }}" alt="">
 					</div>
-					<div class="head"> {{ $data->created_at->translatedFormat('D, d M Y') }}</span>
+					<div class="head"> {{ $data->category }}</span>
 						<h1>{{ $data->name }}</h1>
 					</div>
 				</div>

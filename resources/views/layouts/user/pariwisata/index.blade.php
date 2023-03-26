@@ -38,7 +38,7 @@
                                     <img src="{{ $data->url_image ?? asset('images/static/empty.png')}}" alt="">
                                 </div>
                                 <div>
-                                    <p>{{ $data->created_at->translatedFormat('D, d M Y') }}</p>
+                                    <p>{{ $data->category }}</p>
                                     <h2>{{ $data->name }}</h2>
                                 </div> <a href="{{ route('user.pariwisata.detail',$data->id) }}" class="fclick">&nbsp;</a>
                             </div>
