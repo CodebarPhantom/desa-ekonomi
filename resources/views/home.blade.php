@@ -3,11 +3,11 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashbosdsdard</h1>
+    <h1>Selamat Datang</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Selamat datang di Admin Panel Desa Cintalaksana</p>
 @stop
 
 @section('css')
@@ -15,5 +15,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+
 @stop
