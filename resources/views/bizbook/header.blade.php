@@ -19,7 +19,7 @@
                                     </li>
                                     <li><a href="{{ route('user.umkm.index') }}">UMKM</a>
                                     </li>
-                                    <li><a href="all-listing.html">Produk UMKM</a>
+                                    <li><a href="{{ route('user.umkm-product.index') }}">Produk UMKM</a>
                                     </li>
                                     <li><a href="all-listing.html">Produk Masyarakat</a>
                                     </li>

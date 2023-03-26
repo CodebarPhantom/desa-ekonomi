@@ -10,7 +10,7 @@ class UmkmController extends Controller
 {
     public function index()
     {
-        $datas = Umkm::orderBy('created_at','desc')->get();
+        $datas = Umkm::orderBy('name','asc')->get();
 
         return view('layouts.user.umkm.index',compact('datas'));
     }

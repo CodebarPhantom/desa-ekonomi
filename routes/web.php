@@ -10,6 +10,7 @@ use App\Http\Controllers\Administrator\UmkmProductController;
 use App\Http\Controllers\User\HomePageController;
 use App\Http\Controllers\User\PariwisataController as UserPariwisataController;
 use App\Http\Controllers\User\UmkmController as UserUmkmController;
+use App\Http\Controllers\User\UmkmProductController as UserUmkmProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +45,10 @@ Route::prefix('/')->as('user.')->group(function() {
     Route::prefix('/umkm')->as('umkm.')->group(function() {
         Route::get('', [UserUmkmController::class,'index'])->name('index');
         Route::get('{id}/detail', [UserUmkmController::class,'detail'])->name('detail');
+    });
+    Route::prefix('/umkm-product')->as('umkm-product.')->group(function() {
+        Route::get('', [UserUmkmProductController::class,'index'])->name('index');
+        Route::get('{id}/detail', [UserUmkmProductController::class,'detail'])->name('detail');
     });
 });
 
