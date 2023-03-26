@@ -21,7 +21,7 @@
                                     </li>
                                     <li><a href="{{ route('user.umkm-product.index') }}">Produk UMKM</a>
                                     </li>
-                                    <li><a href="all-listing.html">Produk Masyarakat</a>
+                                    <li><a href="{{ route('user.masyarakat-product.index') }}l">Produk Masyarakat</a>
                                     </li>
                                     <li><a href="all-listing.html">Event Masyarakat</a>
                                     </li>

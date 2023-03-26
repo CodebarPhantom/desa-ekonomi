@@ -8,6 +8,7 @@ use App\Http\Controllers\Administrator\PariwisataController;
 use App\Http\Controllers\Administrator\UmkmController;
 use App\Http\Controllers\Administrator\UmkmProductController;
 use App\Http\Controllers\User\HomePageController;
+use App\Http\Controllers\User\MasyarakatProductController as UserMasyarakatProductController;
 use App\Http\Controllers\User\PariwisataController as UserPariwisataController;
 use App\Http\Controllers\User\UmkmController as UserUmkmController;
 use App\Http\Controllers\User\UmkmProductController as UserUmkmProductController;
@@ -49,6 +50,10 @@ Route::prefix('/')->as('user.')->group(function() {
     Route::prefix('/umkm-product')->as('umkm-product.')->group(function() {
         Route::get('', [UserUmkmProductController::class,'index'])->name('index');
         Route::get('{id}/detail', [UserUmkmProductController::class,'detail'])->name('detail');
+    });
+    Route::prefix('/masyarakat-product')->as('masyarakat-product.')->group(function() {
+        Route::get('', [UserMasyarakatProductController::class,'index'])->name('index');
+        Route::get('{id}/detail', [UserMasyarakatProductController::class,'detail'])->name('detail');
     });
 });
 

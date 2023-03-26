@@ -70,7 +70,7 @@
 									</div>
 									<div class="land-pack-grid-text">
                                        <h4>Produk Masyarakat</h4>
-									</div> <a href="all-listing.html" class="land-pack-grid-btn">View all listings</a>
+									</div> <a href="{{ route('user.masyarakat-product.index') }}" class="land-pack-grid-btn">View all listings</a>
 								</div>
 							</li>
 							<li>
