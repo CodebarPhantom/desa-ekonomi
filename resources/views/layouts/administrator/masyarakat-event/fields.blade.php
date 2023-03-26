@@ -60,7 +60,7 @@
                                 <input id="image" type="file" class="custom-file-input"  name="url_image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
-                            <img alt="image" id="preview-image-before-upload" class="table-avatar align-middle rounded" width="45%" height="45%" src=asset('images/static/empty.png')>
+                            <img alt="image" id="preview-image-before-upload" class="table-avatar align-middle rounded" width="45%" height="45%" src={{ asset('images/static/empty.png') }}>
                         </div>
                     </div>
                 @elseif ($action  === "edit")
