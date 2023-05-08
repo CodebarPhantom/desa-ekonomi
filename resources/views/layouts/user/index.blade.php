@@ -6,7 +6,7 @@
     <!-- START -->
     <section>
         <div class="str">
-            <div class="hom-head" style=" background-image: url({{ asset('images/static/home.jpg') }});">
+            <div class="hom-head" style=" background-image: url({{ asset('images/static/kartar.png') }});">
                 @include('bizbook.header')
                 <div class="container">
                     <div class="row">

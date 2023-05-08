@@ -3,7 +3,7 @@
         <div class="row">
             <div class="hom-nav db-open">
                 <a href="{{ url('/') }}" class="top-log">
-                    <img src="{{ asset('images/home/logo-b.png') }}" width="40" height="49" class="">
+                    <img src="{{ asset('images/home/kartar-logo.png') }}" width="50" height="50" class="">
                 </a>
                 <div class="menu">
                     <h4>All Category</h4>
